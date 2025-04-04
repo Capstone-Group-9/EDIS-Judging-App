@@ -14,16 +14,13 @@
     "build": "quasar build",
     "postinstall": "quasar prepare",
     "watch": "npm-watch",
-    "prism": "prism mock -d --cors -p 7080 openapi.yml",
-    "openapi": "openapi-generator-cli generate -g typescript-axios -i openapi.yml -o src/sdk/ -p withSeparateModelsAndApi=true,apiPackage=api,modelPackage=models,legacyDiscriminatorBehavior=false"
+    "prism": "prism mock -d --cors -p 7080 openapi.yaml",
+    "openapi": "openapi-generator-cli generate -g typescript-fetch -i openapi.yaml -o src/sdk/ -p withSeparateModelsAndApi=true,apiPackage=api,modelPackage=models,legacyDiscriminatorBehavior=false"
   },
   "watch": {
     "openapi": {
       "patterns": [
-        "openapi.yml"
-      ],
-      "tasks": [
-        "prism"
+        "openapi.yaml"
       ]
     },
     "prism": true,
