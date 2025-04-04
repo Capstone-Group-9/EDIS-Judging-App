@@ -24,7 +24,7 @@
       ]
     },
     "prism": true,
-    "serve": {
+    "dev": {
       "inherit": true,
       "patterns": [
         "package.json",
