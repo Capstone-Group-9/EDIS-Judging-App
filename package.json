@@ -7,6 +7,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "serve": "quasar dev",
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{ts,js,cjs,mjs,vue}\"",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
@@ -15,7 +16,7 @@
     "postinstall": "quasar prepare",
     "watch": "npm-watch",
     "prism": "prism mock -d --cors -p 7080 openapi.yaml",
-    "openapi": "openapi-generator-cli generate -g typescript-fetch -i openapi.yaml -o src/sdk/ -p withSeparateModelsAndApi=true,apiPackage=api,modelPackage=models,legacyDiscriminatorBehavior=false"
+    "openapi": "openapi-generator-cli generate -g typescript-axios -i openapi.yaml -o src/sdk/ -p withSeparateModelsAndApi=true,apiPackage=api,modelPackage=models,legacyDiscriminatorBehavior=false"
   },
   "watch": {
     "openapi": {
