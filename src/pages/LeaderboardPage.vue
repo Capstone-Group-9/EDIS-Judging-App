@@ -38,13 +38,9 @@ export default {
       columns: [
         { name: 'number', label: 'Team Number', field: 'id' },
         { name: 'name', label: 'Team Name', field: 'name' },
-        { name: 'members', label: 'Team Memebers', field: 'members' },
+        { name: 'members', label: 'Team Members', field: 'members' },
         { name: 'score', label: 'Score', field: 'score' },
       ] as { name: string; label: string; field: string }[],
-      pagination: {
-        rowsPerPage: 10,
-        page: 1,
-      } as { rowsPerPage: number; page: number },
     };
   },
 };
