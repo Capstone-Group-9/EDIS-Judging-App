@@ -1,23 +1,46 @@
 <template>
-  <q-table :rows="leaderboard" :columns="columns" row-key="id" />
+  <q-table :rows="teams" :columns="columns" row-key="id" />
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      leaderboard: [
-        { id: 1, name: 'Konveyor', score: 1 },
-        { id: 2, name: 'team 2', score: 2 },
-        { id: 3, name: 'team 3', score: 3 },
-      ] as { id: number; name: string; score: number }[],
+import { ref, onMounted } from 'vue';
 
+interface Team {
+  id: number;
+  name: string;
+  members: string[];
+  score: string;
+}
+
+export default {
+  name: 'TeamList',
+  setup() {
+    const teams = ref<Team[]>([]);
+    const getTeamData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/teamdata');
+        if (!response.ok) {
+          throw new Error(`error status: ${response.status}`);
+        }
+        const data = await response.json();
+        teams.value = data;
+      } catch (error) {
+        console.error('Error retrieving team data:', error);
+      }
+    };
+
+    onMounted(async () => {
+      await getTeamData();
+    });
+
+    return {
+      teams,
       columns: [
         { name: 'number', label: 'Team Number', field: 'id' },
         { name: 'name', label: 'Team Name', field: 'name' },
+        { name: 'members', label: 'Team Memebers', field: 'members' },
         { name: 'score', label: 'Score', field: 'score' },
       ] as { name: string; label: string; field: string }[],
-
       pagination: {
         rowsPerPage: 10,
         page: 1,
