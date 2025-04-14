@@ -35,7 +35,7 @@ const linksList: EssentialLinkProps[] = [
   },
   {
     title: 'Judges',
-    link: '',
+    link: '/judging',
   },
 ];
 </script>
@@ -73,7 +73,7 @@ const linksList: EssentialLinkProps[] = [
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
-  color: black;
+  color: white;
   letter-spacing: 0.4px;
   margin-left: 15px;
   text-decoration: none;
