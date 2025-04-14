@@ -1,5 +1,5 @@
 <template>
-  <q-table :rows="teams" :columns="columns" row-key="id" />
+  <q-table :rows="teams" :columns="columns" row-key="id" :hide-pagination="true" />
 </template>
 
 <script lang="ts">
@@ -9,6 +9,7 @@ interface Team {
   id: number;
   name: string;
   members: string[];
+  membersString: string;
   score: string;
 }
 
@@ -16,6 +17,7 @@ export default {
   name: 'TeamList',
   setup() {
     const teams = ref<Team[]>([]);
+
     const getTeamData = async () => {
       try {
         const response = await fetch('http://localhost:5000/teamdata');
@@ -31,6 +33,9 @@ export default {
 
     onMounted(async () => {
       await getTeamData();
+      for (const team of teams.value) {
+        team.membersString = team.members.join(', ');
+      }
     });
 
     return {
@@ -38,7 +43,7 @@ export default {
       columns: [
         { name: 'number', label: 'Team Number', field: 'id' },
         { name: 'name', label: 'Team Name', field: 'name' },
-        { name: 'members', label: 'Team Members', field: 'members' },
+        { name: 'members', label: 'Team Members', field: 'membersString' },
         { name: 'score', label: 'Score', field: 'score' },
       ] as { name: string; label: string; field: string }[],
     };
