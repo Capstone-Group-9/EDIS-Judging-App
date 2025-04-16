@@ -2,7 +2,10 @@
   <q-page-container class="page-container">
     <q-page class="q-pa-none">
       <div>
-        <h1>EDIS Teams</h1>
+        <div class="content-header">
+          <span class="content-header-text">JUDGING</span>
+        </div>
+
         <div v-if="teams.length > 0" class="teams-list">
           <div v-for="team in teams" :key="team.id" class="team-card">
             <div class="team-card-header">
@@ -131,5 +134,34 @@ h1 {
 }
 .page-container {
   padding: 20px;
+}
+
+.content-header {
+  display: inline-block;
+  padding: 10px 100px;
+  background-color: #bf2626;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  margin-left: 0;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.content-header-text {
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.q-page-container {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
 }
 </style>

@@ -1,30 +1,36 @@
 <template>
   <q-page-container class="page-container">
     <q-page class="q-pa-none">
-      <div>
-        <h1>EDIS Teams</h1>
-        <div v-if="teams.length > 0" class="teams-list">
-          <div v-for="team in teams" :key="team.id" class="team-card">
-            <div class="team-card-header">
-              <div style="text-align: right">
-                <h7>Team {{ team.id }}</h7>
+      <div class="main-container bg-image">
+        <div class="content-container">
+          <div>
+            <div class="content-header">
+              <span class="content-header-text">Administator Panel</span>
+            </div>
+            <div v-if="teams.length > 0" class="teams-list">
+              <div v-for="team in teams" :key="team.id" class="team-card">
+                <div class="team-card-header">
+                  <div style="text-align: right">
+                    <h7>Team {{ team.id }}</h7>
+                  </div>
+                  <h2 style="margin: 0px; margin-top: 10px">{{ team.name }}</h2>
+                </div>
+                <div class="team-card-body">
+                  <p><strong>Members:</strong> {{ team.members.join(', ') }}</p>
+                  <p><strong>Score:</strong> {{ team.score }}</p>
+                </div>
+                <div style="display: flex; justify-content: right">
+                  <q-btn class="team-btn" label="Edit Team" flat no-caps />
+                  <q-btn class="team-btn" label="Remove Team" flat no-caps />
+                </div>
               </div>
-              <h2 style="margin: 0px; margin-top: 10px">{{ team.name }}</h2>
             </div>
-            <div class="team-card-body">
-              <p><strong>Members:</strong> {{ team.members.join(', ') }}</p>
-              <p><strong>Score:</strong> {{ team.score }}</p>
-            </div>
-            <div style="display: flex; justify-content: right">
-              <q-btn class="team-btn" label="Edit Team" flat no-caps />
-              <q-btn class="team-btn" label="Remove Team" flat no-caps />
-            </div>
+            <div v-else class="text-center empty-notif q-mt-md">No teams available.</div>
+          </div>
+          <div class="q-pa-md q-gutter-sm">
+            <q-btn class="styled-btn" label="Add Team" flat no-caps />
           </div>
         </div>
-        <div v-else class="text-center empty-notif q-mt-md">No teams available.</div>
-      </div>
-      <div class="q-pa-md q-gutter-sm">
-        <q-btn class="styled-btn" label="Add Team" flat no-caps />
       </div>
     </q-page>
   </q-page-container>
@@ -69,6 +75,10 @@ export default {
 </script>
 
 <style scoped>
+.main-container {
+  height: 100%;
+}
+
 h1 {
   font-size: 4rem;
   font-weight: bold;
@@ -133,6 +143,29 @@ h1 {
   color: #333;
 }
 .page-container {
-  padding: 20px;
+  height: 100vh;
+  padding: 0px;
+}
+
+.content-header {
+  display: inline-block;
+  padding: 10px 100px;
+  background-color: #bf2626;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  margin-left: 0;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.content-header-text {
+  font-family: 'Kanit', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  padding-left: 10px;
 }
 </style>
