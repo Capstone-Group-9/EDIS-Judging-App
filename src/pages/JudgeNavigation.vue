@@ -23,9 +23,6 @@
         </div>
         <div v-else class="text-center empty-notif q-mt-md">No teams available.</div>
       </div>
-      <div class="q-pa-md q-gutter-sm">
-        <q-btn class="styled-btn" label="Add Team" flat no-caps />
-      </div>
     </q-page>
   </q-page-container>
 </template>
