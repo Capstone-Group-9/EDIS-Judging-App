@@ -11,11 +11,14 @@ const routes: RouteRecordRaw[] = [
       { path: 'leaderboard', component: () => import('pages/LeaderboardPage.vue') },
     ],
   },
-  // {
-  //   path: '/judge',
-  //   component: () => import('layouts/JudgeLayout.vue'),
-  //   children: [{ path: '', component: () => import('pages/JudgeDashboard.vue') }],
-  // },
+   {
+     path: '/judge',
+     component: () => import('layouts/MainLayout.vue'),
+     children: [
+      { path: '', component: () => import('pages/JudgeDashboard.vue') },
+      { path: 'vote', component: () => import('pages/JudgeVote.vue') }
+    ],
+   },
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
