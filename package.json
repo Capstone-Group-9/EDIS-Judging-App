@@ -15,15 +15,9 @@
     "build": "quasar build",
     "postinstall": "quasar prepare",
     "watch": "npm-watch",
-    "prism": "prism mock -d --cors -p 7080 openapi.yaml",
-    "openapi": 
+    "prism": "prism mock -d --cors -p 7080 openapi.yaml"
   },
   "watch": {
-    "openapi": {
-      "patterns": [
-        "openapi.yaml"
-      ]
-    },
     "prism": true,
     "dev": {
       "inherit": true,
