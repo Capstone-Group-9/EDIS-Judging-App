@@ -15,7 +15,6 @@
               <h2 style="margin: 0px; margin-top: 10px">{{ team.name }}</h2>
             </div>
             <div class="team-card-body">
-              <p><strong>Members:</strong> {{ team.members.join(', ') }}</p>
               <p><strong>Score:</strong> {{ team.score }}</p>
             </div>
             <div style="display: flex; justify-content: right">
@@ -36,7 +35,6 @@ import { ref, onMounted } from 'vue';
 interface Team {
   id: number;
   name: string;
-  members: string[];
   score: string;
 }
 
