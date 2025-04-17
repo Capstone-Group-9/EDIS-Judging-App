@@ -1,7 +1,7 @@
 <template>
   <q-page-container>
     <q-page class="q-pa-none">
-      <div class="main-container bg-image">
+      <div class="main-container">
         <h2 class="section-title">ENGINEERING DESIGN & INNOVATION SHOWCASE</h2>
         <div class="divider-line"></div>
 
@@ -300,12 +300,6 @@ const currentSlide = ref('first');
   width: 100px;
   background-color: #bf2626;
   margin: 0 auto 30px;
-}
-
-.bg-image {
-  background-image: url('src/assets/gray-background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .content-row {

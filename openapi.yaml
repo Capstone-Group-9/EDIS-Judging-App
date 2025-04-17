@@ -1,6 +1,204 @@
 ---
 openapi: 3.0.2
 info:
-  title: openapi
+  title: EDIS
   version: 1.0.0
-  
+paths:
+  /categories:
+    summary: Path used to manage the list of categories.
+    description: >-
+      The REST endpoint/path used to list and create zero or more `category` entities.  This path
+      contains a `GET` and `POST` operation to perform the list and create tasks, respectively.
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/category'
+          description: Successful response - returns an array of `category` entities.
+      operationId: getcategories
+      summary: List All categories
+      description: Gets a list of all `category` entities.
+    post:
+      requestBody:
+        description: A new `category` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/category'
+        required: true
+      responses:
+        '201':
+          description: Successful response.
+      operationId: createcategory
+      summary: Create a category
+      description: Creates a new instance of a `category`.
+  '/categories/{categoryId}':
+    summary: Path used to manage a single category.
+    description: >-
+      The REST endpoint/path used to get, update, and delete single instances of an `category`.  This
+      path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete
+      tasks, respectively.
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/category'
+          description: Successful response - returns a single `category`.
+      operationId: getcategory
+      summary: Get a category
+      description: Gets the details of a single instance of a `category`.
+    put:
+      requestBody:
+        description: Updated `category` information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/category'
+        required: true
+      responses:
+        '202':
+          description: Successful response.
+      operationId: updatecategory
+      summary: Update a category
+      description: Updates an existing `category`.
+    delete:
+      responses:
+        '204':
+          description: Successful response.
+      operationId: deletecategory
+      summary: Delete a category
+      description: Deletes an existing `category`.
+    parameters:
+      - name: categoryId
+        description: A unique identifier for a `category`.
+        schema:
+          type: string
+        in: path
+        required: true
+  /teams:
+    summary: Path used to manage the list of teams.
+    description: >-
+      The REST endpoint/path used to list and create zero or more `team` entities.  This path contains a
+      `GET` and `POST` operation to perform the list and create tasks, respectively.
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/team'
+          description: Successful response - returns an array of `team` entities.
+      operationId: getteams
+      summary: List All teams
+      description: Gets a list of all `team` entities.
+    post:
+      requestBody:
+        description: A new `team` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/team'
+        required: true
+      responses:
+        '201':
+          description: Successful response.
+      operationId: createteam
+      summary: Create a team
+      description: Creates a new instance of a `team`.
+  '/teams/{teamId}':
+    summary: Path used to manage a single team.
+    description: >-
+      The REST endpoint/path used to get, update, and delete single instances of an `team`.  This path
+      contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks,
+      respectively.
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/team'
+          description: Successful response - returns a single `team`.
+      operationId: getteam
+      summary: Get a team
+      description: Gets the details of a single instance of a `team`.
+    put:
+      requestBody:
+        description: Updated `team` information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/team'
+        required: true
+      responses:
+        '202':
+          description: Successful response.
+      operationId: updateteam
+      summary: Update a team
+      description: Updates an existing `team`.
+    delete:
+      responses:
+        '204':
+          description: Successful response.
+      operationId: deleteteam
+      summary: Delete a team
+      description: Deletes an existing `team`.
+    parameters:
+      - name: teamId
+        description: A unique identifier for a `team`.
+        schema:
+          type: string
+        in: path
+        required: true
+components:
+  schemas:
+    category:
+      description: ''
+      required:
+        - scoringcategories
+        - teamcategory
+      type: object
+      properties:
+        scoringcategories:
+          description: ''
+          type: array
+          items:
+            type: string
+        teamcategory:
+          description: ''
+          type: string
+    team:
+      description: ''
+      required:
+        - id
+        - name
+        - totalscore
+        - teamcategory
+        - scores
+      type: object
+      properties:
+        id:
+          description: ''
+          type: integer
+        name:
+          description: ''
+          type: string
+        totalscore:
+          description: ''
+          type: integer
+        teamcategory:
+          description: ''
+          type: string
+        scores:
+          description: ''
+          type: array
+          items:
+            type: integer
