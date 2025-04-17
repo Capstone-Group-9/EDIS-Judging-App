@@ -8,8 +8,6 @@ import { ref, onMounted } from 'vue';
 interface Team {
   id: number;
   name: string;
-  members: string[];
-  membersString: string;
   score: string;
 }
 
@@ -33,9 +31,6 @@ export default {
 
     onMounted(async () => {
       await getTeamData();
-      for (const team of teams.value) {
-        team.membersString = team.members.join(', ');
-      }
     });
 
     return {
@@ -43,7 +38,6 @@ export default {
       columns: [
         { name: 'number', label: 'Team Number', field: 'id' },
         { name: 'name', label: 'Team Name', field: 'name' },
-        { name: 'members', label: 'Team Members', field: 'membersString' },
         { name: 'score', label: 'Score', field: 'score' },
       ] as { name: string; label: string; field: string }[],
     };
