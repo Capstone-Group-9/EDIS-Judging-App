@@ -5,7 +5,7 @@
         <div class="content-container">
           <div>
             <div class="content-header">
-              <span class="content-header-text">Administator Panel</span>
+              <span class="content-header-text">Administrator Panel</span>
             </div>
             <div v-if="teams.length > 0" class="teams-list">
               <div v-for="team in teams" :key="team.id" class="team-card">
@@ -16,12 +16,19 @@
                   <h2 style="margin: 0px; margin-top: 10px">{{ team.name }}</h2>
                 </div>
                 <div class="team-card-body">
-                  <p><strong>Members:</strong> {{ team.members.join(', ') }}</p>
-                  <p><strong>Score:</strong> {{ team.score }}</p>
+                  <p><strong>Category:</strong> {{ team.teamcategory }}</p>
+                  <p><strong>Scores:</strong> {{ team.scores.join(', ') }}</p>
+                  <p><strong>Total Score:</strong> {{ team.totalscore }}</p>
                 </div>
                 <div style="display: flex; justify-content: right">
                   <q-btn class="team-btn" label="Edit Team" flat no-caps />
-                  <q-btn class="team-btn" label="Remove Team" flat no-caps />
+                  <q-btn
+                    class="team-btn"
+                    label="Remove Team"
+                    flat
+                    no-caps
+                    v-on:click="deleteteam(team.id)"
+                  />
                 </div>
               </div>
             </div>
@@ -42,17 +49,19 @@ import { ref, onMounted } from 'vue';
 interface Team {
   id: number;
   name: string;
-  members: string[];
-  score: string;
+  teamcategory: string;
+  totalscore: number;
+  scores: number[];
 }
 
 export default {
   name: 'TeamList',
   setup() {
     const teams = ref<Team[]>([]);
-    const getTeamData = async () => {
+
+    const getteams = async () => {
       try {
-        const response = await fetch('http://localhost:5000/teamdata');
+        const response = await fetch('http://localhost:5000/teams');
         if (!response.ok) {
           throw new Error(`error status: ${response.status}`);
         }
@@ -63,12 +72,24 @@ export default {
       }
     };
 
-    onMounted(async () => {
-      await getTeamData();
-    });
+    const deleteteam = async (id: number) => {
+      try {
+        const response = await fetch(`http://localhost:5000/teams/${id}`, { method: 'DELETE' });
+        if (response.ok) {
+          teams.value = teams.value.filter((team) => team.id !== id);
+        } else {
+          const errorData = await response.json();
+          console.error(errorData);
+        }
+      } catch (error) {
+        console.error('Error deleting team:', error);
+      }
+    };
+    onMounted(getteams);
 
     return {
       teams,
+      deleteteam: deleteteam,
     };
   },
 };
