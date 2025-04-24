@@ -21,7 +21,13 @@
                   <p><strong>Total Score:</strong> {{ team.totalscore }}</p>
                 </div>
                 <div style="display: flex; justify-content: right">
-                  <q-btn class="team-btn" label="Edit Team" flat no-caps />
+                  <q-btn
+                    class="team-btn"
+                    label="Edit Team"
+                    flat
+                    no-caps
+                    @click="editteam(team.id)"
+                  />
                   <q-btn
                     class="team-btn"
                     label="Remove Team"
@@ -35,7 +41,7 @@
             <div v-else class="text-center empty-notif q-mt-md">No teams available.</div>
           </div>
           <div class="q-pa-md q-gutter-sm">
-            <q-btn class="styled-btn" label="Add Team" flat no-caps />
+            <q-btn class="styled-btn" label="Add Team" flat no-caps @click="addteam" />
           </div>
         </div>
       </div>
@@ -45,6 +51,7 @@
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 interface Team {
   id: number;
@@ -58,6 +65,7 @@ export default {
   name: 'TeamList',
   setup() {
     const teams = ref<Team[]>([]);
+    const rt = useRouter();
 
     const getteams = async () => {
       try {
@@ -74,7 +82,7 @@ export default {
 
     const deleteteam = async (id: number) => {
       try {
-        const response = await fetch(`http://localhost:5000/teams/${id}`, { method: 'DELETE' });
+        const response = await fetch('http://localhost:5000/teams/${id}', { method: 'DELETE' });
         if (response.ok) {
           teams.value = teams.value.filter((team) => team.id !== id);
         } else {
@@ -85,11 +93,21 @@ export default {
         console.error('Error deleting team:', error);
       }
     };
+
+    const addteam = async () => {
+      await rt.push(`/admin/addteam/`);
+    };
     onMounted(getteams);
+
+    const editteam = async (id: number) => {
+      await rt.push(`/admin/teamedit/${id}`);
+    };
 
     return {
       teams,
-      deleteteam: deleteteam,
+      deleteteam,
+      editteam,
+      addteam,
     };
   },
 };

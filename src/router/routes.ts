@@ -8,20 +8,20 @@ const routes: RouteRecordRaw[] = [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: 'admin', component: () => import('pages/AdminLogin.vue') },
       { path: 'judging', component: () => import('pages/JudgeNavigation.vue') },
-      { path: 'voting', component: () => import('pages/JudgeVote.vue') },
       { path: 'leaderboard', component: () => import('pages/LeaderboardPage.vue') },
+
+      { path: 'admin/teamedit/:id', component: () => import('pages/TeamEditor.vue') },
+      { path: 'judging/team/:id', component: () => import('pages/JudgeVote.vue') },
+      { path: 'admin/addteam/', component: () => import('pages/TeamAdd.vue') },
+    ],
+  },
+
+
       { path: 'admin-dashboard', component: () => import('pages/AdminDashboard.vue') },
       { path: 'admin-teams', component: () => import('pages/AdminNavigation.vue') },
     ],
   },
-  //{
-  //  path: '/judge',
-  //  component: () => import('layouts/MainLayout.vue'),
-  //  children: [
-  //   { path: '', component: () => import('pages/JudgeDashboard.vue') },
-  //   { path: 'vote', component: () => import('pages/JudgeVote.vue') }
-  // ],
-  //},
+
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),

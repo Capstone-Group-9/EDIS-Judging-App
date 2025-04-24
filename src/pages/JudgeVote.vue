@@ -19,10 +19,8 @@
   </q-page-container>
 </template>
 
-<script setup lang="ts">
-// import { ref } from 'vue';
-// const currentSlide = ref('first');
-</script>
+<script setup lang="ts"></script>
+
 
 <style scoped>
 .main-container {
