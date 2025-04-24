@@ -2,28 +2,24 @@
   <q-page-container>
     <q-page class="q-pa-none">
       <div class="main-container bg-image">
-        
         <div class="content-header">
           <span class="content-header-text">TEAM NAME</span>
         </div>
         <div class="image-column">
-            <q-img
-              src="~assets/placeholderTeam.svg"
-              alt="Speed School Logo"
-              class="school-image"
-              :width="'350px'"
-              :height="'250px'"
-            />
-          </div>
+          <q-img
+            src="~assets/placeholderTeam.svg"
+            alt="Speed School Logo"
+            class="school-image"
+            :width="'350px'"
+            :height="'250px'"
+          />
+        </div>
       </div>
     </q-page>
   </q-page-container>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-const currentSlide = ref('first');
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .main-container {
@@ -100,5 +96,4 @@ const currentSlide = ref('first');
     margin-bottom: 30px;
   }
 }
-
 </style>

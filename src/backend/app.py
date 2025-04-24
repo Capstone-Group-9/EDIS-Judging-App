@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import psycopg2
 
@@ -17,6 +17,7 @@ def getconnection():
         return con
     except Exception:
         return None
+
 
 @app.route('/teams', methods=['GET'])
 def getteams():
@@ -45,6 +46,8 @@ def getteams():
         curs.close()
         connection.close()
 
+
+
 @app.route('/teams/<int:teamId>', methods=['DELETE'])
 def deleteteam(teamId):
     connection = getconnection()
@@ -60,6 +63,35 @@ def deleteteam(teamId):
         return 'Complete'
     except Exception as e:
         return jsonify({"error": f"Could not delete team: {str(e)}"})
+    finally:
+        curs.close()
+        connection.close()
+
+
+
+@app.route('/teams/<int:teamId>', methods=['PUT'])
+def updateteam(teamId):
+    connection = getconnection()
+    if not connection:
+        return jsonify({"error": "Could not connect to database"})
+
+    data = request.get_json()
+    name = data.get('name')
+    teamcategory = data.get('teamcategory')
+    totalscore = data.get('totalscore')
+    scores = data.get('scores')
+
+    try:
+        curs = connection.cursor()
+        curs.execute("""
+            UPDATE "Teams" SET name = %s, teamcategory = %s, totalscore = %s, scores = %s WHERE id = %s""", 
+            (name, teamcategory, totalscore, scores, teamId))
+        connection.commit()
+        if curs.rowcount == 0:
+            return jsonify({"error": "Team not found"})
+        return jsonify()
+    except Exception as e:
+        return jsonify({"error": f"Could not update team: {str(e)}"})
     finally:
         curs.close()
         connection.close()
