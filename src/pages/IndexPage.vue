@@ -40,33 +40,32 @@
           <div class="q-pa-md leaderboard">
             <q-list bordered padding>
               <q-item>
-                <q-item-section avatar>
-                  <q-icon color="primary" name="bluetooth" />
-                </q-item-section>
-                <q-item-section>List item</q-item-section>
-                <q-item-section side>
-                  <q-item-label caption>meta</q-item-label>
-                </q-item-section>
-              </q-item>
-
-              <q-separator spaced inset="item" />
-
-              <q-item>
                 <q-item-section top avatar>
-                  <q-avatar color="primary" text-color="white" icon="bluetooth" />
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
+                  <q-item-label>Team 1</q-item-label>
                   <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
                 </q-item-section>
+              </q-item>
 
-                <q-item-section side top>
-                  <q-item-label caption>5 min ago</q-item-label>
-                  <q-icon name="star" color="yellow" />
+              <q-separator spaced inset="item" />
+
+              <q-item>
+                <q-item-section top avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>Team 2</q-item-label>
+                  <q-item-label caption lines="2"
+                    >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
+                    elit.</q-item-label
+                  >
                 </q-item-section>
               </q-item>
 
@@ -74,19 +73,15 @@
 
               <q-item>
                 <q-item-section top avatar>
-                  <q-avatar color="primary" text-color="white" square icon="bluetooth" />
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
+                  <q-item-label>Team 3</q-item-label>
+                  <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
-                </q-item-section>
-
-                <q-item-section side top>
-                  <q-item-label caption>meta</q-item-label>
                 </q-item-section>
               </q-item>
 
@@ -94,21 +89,15 @@
 
               <q-item>
                 <q-item-section top avatar>
-                  <q-avatar>
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-                  </q-avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
+                  <q-item-label>Team 4</q-item-label>
+                  <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
-                </q-item-section>
-
-                <q-item-section side top>
-                  <q-badge label="10k" />
                 </q-item-section>
               </q-item>
 
@@ -116,21 +105,15 @@
 
               <q-item>
                 <q-item-section top avatar>
-                  <q-avatar rounded>
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-                  </q-avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
+                  <q-item-label>Team 5</q-item-label>
+                  <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
-                </q-item-section>
-
-                <q-item-section side top>
-                  <q-item-label caption>meta</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
@@ -138,33 +121,32 @@
           <div class="q-pa-md leaderboard">
             <q-list bordered padding>
               <q-item>
-                <q-item-section avatar>
-                  <q-icon color="primary" name="bluetooth" />
-                </q-item-section>
-                <q-item-section>List item</q-item-section>
-                <q-item-section side>
-                  <q-item-label caption>meta</q-item-label>
-                </q-item-section>
-              </q-item>
-
-              <q-separator spaced inset="item" />
-
-              <q-item>
                 <q-item-section top avatar>
-                  <q-avatar color="primary" text-color="white" icon="bluetooth" />
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
+                  <q-item-label>Team 6</q-item-label>
                   <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
                 </q-item-section>
+              </q-item>
 
-                <q-item-section side top>
-                  <q-item-label caption>5 min ago</q-item-label>
-                  <q-icon name="star" color="yellow" />
+              <q-separator spaced inset="item" />
+
+              <q-item>
+                <q-item-section top avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>Team 7</q-item-label>
+                  <q-item-label caption lines="2"
+                    >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
+                    elit.</q-item-label
+                  >
                 </q-item-section>
               </q-item>
 
@@ -172,19 +154,30 @@
 
               <q-item>
                 <q-item-section top avatar>
-                  <q-avatar color="primary" text-color="white" square icon="bluetooth" />
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
+                  <q-item-label>Team 8</q-item-label>
+                  <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
                 </q-item-section>
+              </q-item>
+              <q-separator spaced inset="item" />
 
-                <q-item-section side top>
-                  <q-item-label caption>meta</q-item-label>
+              <q-item>
+                <q-item-section top avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
+                </q-item-section>
+
+                <q-item-section>
+                  <q-item-label>Team 9</q-item-label>
+                  <q-item-label caption lines="2"
+                    >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
+                    elit.</q-item-label
+                  >
                 </q-item-section>
               </q-item>
 
@@ -192,43 +185,15 @@
 
               <q-item>
                 <q-item-section top avatar>
-                  <q-avatar>
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-                  </q-avatar>
+                  <q-avatar color="red" text-color="white" icon="person" />
                 </q-item-section>
 
                 <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
+                  <q-item-label>Team 10</q-item-label>
+                  <q-item-label caption lines="2"
                     >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
                     elit.</q-item-label
                   >
-                </q-item-section>
-
-                <q-item-section side top>
-                  <q-badge label="10k" />
-                </q-item-section>
-              </q-item>
-
-              <q-separator spaced inset="item" />
-
-              <q-item>
-                <q-item-section top avatar>
-                  <q-avatar rounded>
-                    <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-                  </q-avatar>
-                </q-item-section>
-
-                <q-item-section>
-                  <q-item-label>Single line item</q-item-label>
-                  <q-item-label caption
-                    >Secondary line text. Lorem ipsum dolor sit amet, consectetur adipiscit
-                    elit.</q-item-label
-                  >
-                </q-item-section>
-
-                <q-item-section side top>
-                  <q-item-label caption>meta</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
@@ -250,20 +215,17 @@
             >
               <q-carousel-slide name="first" img-src="src/assets/GROUP SAMPLE 2.jpg">
                 <div class="absolute-bottom custom-caption">
-                  <div class="text-h2">First stop</div>
-                  <div class="text-subtitle1">Mountains</div>
+                  <div class="text-h2 text-white">Team 1</div>
                 </div>
               </q-carousel-slide>
-              <q-carousel-slide name="second" img-src="https://cdn.quasar.dev/img/parallax1.jpg">
+              <q-carousel-slide name="second" img-src="src/assets/GROUP SAMPLE 1.jpg">
                 <div class="absolute-bottom custom-caption">
-                  <div class="text-h2">Second stop</div>
-                  <div class="text-subtitle1">Famous City</div>
+                  <div class="text-h2 text-white">Team 2</div>
                 </div>
               </q-carousel-slide>
-              <q-carousel-slide name="third" img-src="https://cdn.quasar.dev/img/parallax2.jpg">
+              <q-carousel-slide name="third" img-src="src/assets/GROUP SAMPLE 3.jpg">
                 <div class="absolute-bottom custom-caption">
-                  <div class="text-h2">Third stop</div>
-                  <div class="text-subtitle1">Famous Bridge</div>
+                  <div class="text-h2 text-white">Team 3</div>
                 </div>
               </q-carousel-slide>
             </q-carousel>
