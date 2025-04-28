@@ -44,7 +44,7 @@ export default {
     const teams = ref<Team[]>([]);
     const getTeamData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/teamdata');
+        const response = await fetch('http://localhost:5000/teams');
         if (!response.ok) {
           throw new Error(`error status: ${response.status}`);
         }
