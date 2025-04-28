@@ -9,14 +9,9 @@ const routes: RouteRecordRaw[] = [
       { path: 'admin', component: () => import('pages/AdminLogin.vue') },
       { path: 'judging', component: () => import('pages/JudgeNavigation.vue') },
       { path: 'leaderboard', component: () => import('pages/LeaderboardPage.vue') },
-
       { path: 'admin/teamedit/:id', component: () => import('pages/TeamEditor.vue') },
       { path: 'judging/team/:id', component: () => import('pages/JudgeVote.vue') },
       { path: 'admin/addteam/', component: () => import('pages/TeamAdd.vue') },
-    ],
-  },
-
-
       { path: 'admin-dashboard', component: () => import('pages/AdminDashboard.vue') },
       { path: 'admin-teams', component: () => import('pages/AdminNavigation.vue') },
     ],
