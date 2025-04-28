@@ -82,7 +82,7 @@ export default {
 
     const deleteteam = async (id: number) => {
       try {
-        const response = await fetch('http://localhost:5000/teams/${id}', { method: 'DELETE' });
+        const response = await fetch(`http://localhost:5000/teams/${id}`, { method: 'DELETE' });
         if (response.ok) {
           teams.value = teams.value.filter((team) => team.id !== id);
         } else {

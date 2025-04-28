@@ -18,8 +18,7 @@
               <p><strong>Score:</strong> {{ team.score }}</p>
             </div>
             <div style="display: flex; justify-content: right">
-              <q-btn class="team-btn" label="Edit Team" flat no-caps />
-              <q-btn class="team-btn" label="Remove Team" flat no-caps />
+              <q-btn class="team-btn" label="Score Team" flat no-caps @click="scoreteam(team.id)" />
             </div>
           </div>
         </div>
@@ -31,6 +30,7 @@
 
 <script lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 interface Team {
   id: number;
@@ -42,9 +42,11 @@ export default {
   name: 'TeamList',
   setup() {
     const teams = ref<Team[]>([]);
+
+    const rt = useRouter();
     const getTeamData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/teamdata');
+        const response = await fetch('http://localhost:5000/teams');
         if (!response.ok) {
           throw new Error(`error status: ${response.status}`);
         }
@@ -55,12 +57,17 @@ export default {
       }
     };
 
+    const editteam = async (id: number) => {
+      await rt.push(`/judging/team/${id}`);
+    };
+
     onMounted(async () => {
       await getTeamData();
     });
 
     return {
       teams,
+      scoreteam: editteam,
     };
   },
 };
