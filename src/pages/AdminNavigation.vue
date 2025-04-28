@@ -1,7 +1,7 @@
 <template>
   <q-page-container class="page-container">
     <q-page class="q-pa-none">
-      <div class="main-container bg-image">
+      <div class="main-container">
         <div class="content-container">
           <div>
             <div class="content-header">

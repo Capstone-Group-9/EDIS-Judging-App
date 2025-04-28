@@ -21,6 +21,7 @@
 
 <script setup lang="ts"></script>
 
+
 <style scoped>
 .main-container {
   max-width: 1200px;

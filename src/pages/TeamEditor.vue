@@ -107,7 +107,7 @@ export default {
         if (!response.ok) {
           throw new Error('Could not update team');
         }
-        await router.push('/admin');
+        await router.push('/admin-teams');
       } catch {
         await router.push('/ErrorNotFound');
       }
